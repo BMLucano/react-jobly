@@ -14,10 +14,9 @@ import JobCard from "./JobCard";
 */
 
 function JobCardList({ jobData }) {
-  console.log("JobCardList jobData=", jobData);
 
   return (
-    <div className="JobCardList">
+    <div className="JobList col-md-8 offset-md-2">
       {jobData.map(job => (
         <JobCard
           key={job.id}

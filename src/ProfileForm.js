@@ -1,6 +1,7 @@
 import React, { useState, useContext } from "react";
 import userContext from "./userContext";
 import { useNavigate } from "react-router-dom";
+import "./ProfileForm.css"
 
 
 /** Edit Profile Form.
@@ -54,48 +55,67 @@ function ProfileForm({ editProfile }) {
   }
 
   return (
-    <form className="ProfileForm" onSubmit={handleSubmit}>
-      <div>
-        <label htmlFor="ProfileForm-username">Username:</label>
-        <input
-          id="ProfileForm-username"
-          name="username"
-          value={formData.username}
-          onChange={handleChange}
-          disabled>
-        </input>
+    <div className="ProfileForm col-md-6 col-lg-4 offset-md-3 offset-lg-4">
+      <h3>Profile</h3>
+      <div className="card">
+        <div className="card-body">
+          <form onSubmit={handleSubmit}>
+            <div className="mb-3">
+              <label className="form-label" htmlFor="ProfileForm-username">
+                Username:
+              </label>
+              <input
+                className="form-control"
+                id="ProfileForm-username"
+                name="username"
+                value={formData.username}
+                onChange={handleChange}
+                disabled>
+              </input>
+            </div>
+            <div className="mb-3">
+              <label className="form-label" htmlFor="ProfileForm-firstName">
+                First Name:
+              </label>
+              <input
+                className="form-control"
+                id="ProfileForm-firstName"
+                name="firstName"
+                value={formData.firstName}
+                onChange={handleChange}>
+              </input>
+            </div>
+            <div className="mb-3">
+              <label className="form-label" htmlFor="ProfileForm-lastName">
+                Last Name:
+              </label>
+              <input
+                className="form-control"
+                id="ProfileForm-lastName"
+                name="lastName"
+                value={formData.lastName}
+                onChange={handleChange}>
+              </input>
+            </div>
+            <div className="mb-3">
+              <label className="form-label" htmlFor="ProfileForm-email">
+                Email:
+              </label>
+              <input
+                className="form-control"
+                id="ProfileForm-email"
+                type="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}>
+              </input>
+            </div>
+            {formErrors.length > 0 && <div><b>{formErrors}</b></div>}
+            <button className="btn btn-primary">Save Changes</button>
+          </form>
+        </div>
       </div>
-      <div>
-        <label htmlFor="ProfileForm-firstName">First Name:</label>
-        <input
-          id="ProfileForm-firstName"
-          name="firstName"
-          value={formData.firstName}
-          onChange={handleChange}>
-        </input>
-      </div>
-      <div>
-        <label htmlFor="ProfileForm-lastName">Last Name:</label>
-        <input
-          id="ProfileForm-lastName"
-          name="lastName"
-          value={formData.lastName}
-          onChange={handleChange}>
-        </input>
-      </div>
-      <div>
-        <label htmlFor="ProfileForm-email">Email:</label>
-        <input
-          id="ProfileForm-email"
-          type="email"
-          name="email"
-          value={formData.email}
-          onChange={handleChange}>
-        </input>
-      </div>
-      {formErrors.length > 0 && <div><b>{formErrors}</b></div>}
-      <button>Submit</button>
-    </form>
+    </div>
   );
 
 }

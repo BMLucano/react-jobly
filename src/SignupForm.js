@@ -59,58 +59,81 @@ function SignupForm({ signup }) {
   console.log("FormErrors:", formErrors);
 
   return (
-    <form className="SignupForm" onSubmit={handleSubmit}>
-      <div>
-        <label htmlFor="Signup-username">Username:</label>
-        <input
-          id="Signup-username"
-          name="username"
-          value={formData.username}
-          onChange={handleChange}>
-        </input>
+    <div className="SignupForm">
+      <div className="container col-md-6 offset-md-3 col-lg-4 offset-lg-4">
+      <h2 className="mb-3">Sign Up</h2>
+      <div className="card">
+        <div className="card-body">
+          <form onSubmit={handleSubmit}>
+            <div className="mb-3">
+              <label className="form-label" htmlFor="Signup-username">
+                Username:
+              </label>
+              <input
+                className="form-control"
+                id="Signup-username"
+                name="username"
+                value={formData.username}
+                onChange={handleChange}>
+              </input>
+            </div>
+            <div className="mb-3">
+              <label className="form-label" htmlFor="Signup-password">
+                Password:
+              </label>
+              <input
+                className="form-control"
+                id="Signup-password"
+                type="password"
+                name="password"
+                value={formData.password}
+                onChange={handleChange}>
+              </input>
+            </div>
+            <div className="mb-3">
+              <label className="form-label" htmlFor="Signup-firstName">
+                First Name:
+              </label>
+              <input
+                className="form-control"
+                id="Signup-firstName"
+                name="firstName"
+                value={formData.firstName}
+                onChange={handleChange}>
+              </input>
+            </div>
+            <div className="mb-3">
+              <label className="form-label" htmlFor="Signup-lastName">
+                Last Name:
+              </label>
+              <input
+                className="form-control"
+                id="Signup-lastName"
+                name="lastName"
+                value={formData.lastName}
+                onChange={handleChange}>
+              </input>
+            </div>
+            <div className="mb-3">
+              <label className="form-label" htmlFor="Signup-email">
+                Email:
+              </label>
+              <input
+                className="form-control"
+                id="Signup-email"
+                type="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}>
+              </input>
+            </div>
+            {formErrors.length > 0 && <div><b>{formErrors}</b></div>}
+            <button className="btn btn-primary">Submit</button>
+          </form>
+          </div>
+        </div>
       </div>
-      <div>
-        <label htmlFor="Signup-password">Password:</label>
-        <input
-          id="Signup-password"
-          type="password"
-          name="password"
-          value={formData.password}
-          onChange={handleChange}>
-        </input>
-      </div>
-      <div>
-        <label htmlFor="Signup-firstName">First Name:</label>
-
-        <input
-          id="Signup-firstName"
-          name="firstName"
-          value={formData.firstName}
-          onChange={handleChange}>
-        </input>
-      </div>
-      <div>
-        <label htmlFor="Signup-lastName">Last Name:</label>
-        <input
-          id="Signup-lastName"
-          name="lastName"
-          value={formData.lastName}
-          onChange={handleChange}>
-        </input>
-      </div>
-      <div>
-        <label htmlFor="Signup-email">Email:</label>
-        <input
-          id="Signup-email"
-          type="email"
-          name="email"
-          value={formData.email}
-          onChange={handleChange}>
-        </input>
-      </div>
-      {formErrors.length > 0 && <div><b>{formErrors}</b></div>}
-      <button>Submit</button>
-    </form>
+    </div>
   );
 }
 

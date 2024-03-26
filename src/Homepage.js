@@ -24,18 +24,24 @@ function Homepage() {
 
   return (
     <div className="Homepage">
-      <div>
-        <h1>Jobly</h1>
-        <h3>All the jobs in one, convenient place.</h3>
+      <div className="container text-center">
+        <h1 className="mb-4 fw-bold">Jobly</h1>
+        <h3 className="lead">All the jobs in one, convenient place.</h3>
         {currUser && <h1>{`Welcome ${currUser.user.firstName}`}</h1>}
-      </div>
-      {!isLoggedIn &&
-        <div>
-          <button><Link to="/login">Login</Link></button>
-          <button><Link to="/signup">Sign up</Link></button>
-        </div>
-      }
 
+      {!isLoggedIn &&
+        <p>
+          <Link className="btn btn-primary fw-bold me-3"
+            to="/login">
+            Login
+          </Link>
+          <Link className="btn btn-primary fw-bold"
+            to="/signup">
+            Sign up
+          </Link>
+        </p>
+      }
+      </div>
     </div>
   );
 }

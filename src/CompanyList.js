@@ -2,7 +2,6 @@ import React, { useState, useEffect, useCallback } from "react";
 import SearchForm from "./SearchForm";
 import CompanyCard from "./CompanyCard";
 import JoblyApi from "./api";
-import debounce from "lodash/debounce";
 
 /** CompanyList - list all companies
  *
@@ -21,8 +20,6 @@ function CompanyList() {
     isLoading: true
   });
   const [searchTerm, setSearchTerm] = useState("");
-  console.log("CompaniesDats length", searchTerm);
-
 
   /** useEffect:
    * - fetch data for all companies after initial render.
@@ -52,7 +49,7 @@ function CompanyList() {
   }
 
   return (
-    <div className="CompanyList">
+    <div className="CompanyList col-md-8 offset-md-2">
       <SearchForm handleSearch={handleSearch} />
       {companiesData.isLoading
         ? <p>Loading...</p>

@@ -16,8 +16,6 @@ import "./SearchForm.css";
 function SearchForm({ handleSearch }) {
   const [searchTerm, setSearchTerm] = useState("");
 
-  console.log("SeachForm state=", searchTerm);
-
   /** Handle updates from form input. */
   function handleChange(evt) {
     const result = evt.target.value;
@@ -26,28 +24,24 @@ function SearchForm({ handleSearch }) {
     debouncedHandleSearch(result);
   }
 
-  /** Send to parent component to handle when form is submitted  */
-
   const debouncedHandleSearch = debounce(handleSearch, 500);
 
-  // console.log("debouncedHandleSearch", debouncedHandleSearch);
-
-  // useEffect(function cancelDebounce(){
-  //  return debouncedHandleSearch.cancel();
-  // }, []);
 
   return (
-    <div>
-      <form className="SearchForm">
-        <input
-          className="SearchForm-input"
-          type="text"
-          name="search"
-          placeholder="Enter search term.."
-          value={searchTerm}
-          onChange={handleChange}>
-        </input>
-        {/* <button className="SearchForm-btn">Submit</button> */}
+    <div className="SearchForm mb-4 mt-4">
+      <form>
+        <div className="row justify-content-center gx-0">
+          <div className="col-8">
+            <input
+              className="form-control form-control-lg"
+              type="text"
+              name="search"
+              placeholder="Enter search term.."
+              value={searchTerm}
+              onChange={handleChange}>
+            </input>
+          </div>
+        </div>
       </form>
     </div>
   );

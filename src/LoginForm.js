@@ -49,29 +49,45 @@ function LoginForm({ login }) {
 
 
   return (
-    <form className="LoginForm" onSubmit={handleSubmit}>
-      <div>
-        <label htmlFor="Login-username">Username:</label>
-        <input
-          id="Login-username"
-          name="username"
-          value={formData.username}
-          onChange={handleChange}>
-        </input>
+    <div className="LoginForm">
+      <div className="container col-md-6 offset-md-3 col-lg-4 offset-lg-4">
+        <h3 className="mb-3">Log In</h3>
+
+        <div className="card">
+          <div className="card-body">
+            <form onSubmit={handleSubmit}>
+              <div className="mb-3">
+                <label className="form-label" htmlFor="Login-username">
+                  Username:
+                </label>
+                <input
+                  className="form-control"
+                  id="Login-username"
+                  name="username"
+                  value={formData.username}
+                  onChange={handleChange}>
+                </input>
+              </div>
+              <div className="mb-3">
+                <label className="form-label" htmlFor="Login-password">
+                  Password:
+                </label>
+                <input
+                  className="form-control"
+                  id="Login-password"
+                  type="password"
+                  name="password"
+                  value={formData.password}
+                  onChange={handleChange}>
+                </input>
+              </div>
+              {formErrors.length > 0 && <div><b>{formErrors}</b></div>}
+              <button className="btn btn-primary">Submit</button>
+            </form>
+          </div>
+        </div>
       </div>
-      <div>
-        <label htmlFor="Login-password">Password:</label>
-        <input
-          id="Login-password"
-          type="password"
-          name="password"
-          value={formData.password}
-          onChange={handleChange}>
-        </input>
-      </div>
-      {formErrors.length > 0 && <div><b>{formErrors}</b></div>}
-      <button>Submit</button>
-    </form>
+    </div>
   );
 }
 export default LoginForm;
